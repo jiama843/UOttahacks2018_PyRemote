@@ -22,18 +22,35 @@ io.sockets.on('connection', function(socket){
 
         if(strArray[0] == "open"){
             console.log(str);
-            console.log('Opening Youtube...');
-            var execute = exec('open '+ strArray[1], (error, stdout, stderr) => {
-                console.log('${stdout}');
-                console.log('${stderr}');
-                if (error !== null) {
-                    console.log('exec error: ${error}');
-                }
-            });
-
+            var strTmp = ""
+            for(var i = 2; i < strArray.length; i++){
+                
+                strTmp += strArray[i];
+                console.log(strTmp);
+            }
+            console.log(strArray[1]);
+            if(strArray[1] == "YouTube"){
+                console.log(strTmp);
+                var execute = exec('py Youtube.py open Youtube '+strTmp, (error, stdout, stderr) => {
+                    console.log('${stdout}');
+                    console.log('${stderr}');
+                    if (error !== null) {
+                        console.log('exec error: ${error}');
+                    }
+                });
+            }
+            else if(strArray[1] == "Google"){
+                var execute = exec('py Google.py open Google '+strTmp, (error, stdout, stderr) => {
+                    console.log('${stdout}');
+                    console.log('${stderr}');
+                    if (error !== null) {
+                        console.log('exec error: ${error}');
+                    }
+                });
+            }
         }
         else if(strArray[0] == "pause"){
-            var execute = exec('', (error, stdout, stderr) => {
+            var execute = exec('py pause.py video pause', (error, stdout, stderr) => {
                 console.log('${stdout}');
                 console.log('${stderr}');
                 if (error !== null) {
@@ -42,7 +59,7 @@ io.sockets.on('connection', function(socket){
             });
         }
         else if(strArray[0] == "resume"){
-            var execute = exec('', (error, stdout, stderr) => {
+            var execute = exec('py pause.py video continue', (error, stdout, stderr) => {
                 console.log('${stdout}');
                 console.log('${stderr}');
                 if (error !== null) {
@@ -51,7 +68,7 @@ io.sockets.on('connection', function(socket){
             });
         }
         else if(strArray[0] == "fullscreen"){
-            var execute = exec('', (error, stdout, stderr) => {
+            var execute = exec('py Screen.py screen full', (error, stdout, stderr) => {
                 console.log('${stdout}');
                 console.log('${stderr}');
                 if (error !== null) {
@@ -59,8 +76,8 @@ io.sockets.on('connection', function(socket){
                 }
             });
         }
-        else if(strArray[0] == "skip"){
-            var execute = exec('', (error, stdout, stderr) => {
+        else if(strArray[0] == "normal"){
+            var execute = exec('py Screen.py screen normal', (error, stdout, stderr) => {
                 console.log('${stdout}');
                 console.log('${stderr}');
                 if (error !== null) {
@@ -68,8 +85,8 @@ io.sockets.on('connection', function(socket){
                 }
             });
         }
-        else if(strArray[0] == "prev"){
-            var execute = exec('', (error, stdout, stderr) => {
+        else if(strArray[0] == "next"){
+            var execute = exec('py pause.py video next', (error, stdout, stderr) => {
                 console.log('${stdout}');
                 console.log('${stderr}');
                 if (error !== null) {
@@ -77,7 +94,16 @@ io.sockets.on('connection', function(socket){
                 }
             });
         }
-        else if(strArray[0] == "search"){
+        else if(strArray[0] == "back"){
+            var execute = exec('py pause.py video previous', (error, stdout, stderr) => {
+                console.log('${stdout}');
+                console.log('${stderr}');
+                if (error !== null) {
+                    console.log('exec error: ${error}');
+                }
+            });
+        }
+        /*else if(strArray[0] == "search"){
             if(strArray[1] == "image"){
                 var execute = exec('', (error, stdout, stderr) => {
                     console.log('${stdout}');
@@ -96,6 +122,51 @@ io.sockets.on('connection', function(socket){
                     }
                 });
             }
+        }*/
+        else if(strArray[0] == "left"){
+            var execute = exec('py Left.py', (error, stdout, stderr) => {
+                console.log('${stdout}');
+                console.log('${stderr}');
+                if (error !== null) {
+                    console.log('exec error: ${error}');
+                }
+            });
+        }
+        else if(strArray[0] == "right"){
+            var execute = exec('py Right.py', (error, stdout, stderr) => {
+                console.log('${stdout}');
+                console.log('${stderr}');
+                if (error !== null) {
+                    console.log('exec error: ${error}');
+                }
+            });
+        }
+        else if(strArray[0] == "up"){
+            var execute = exec('py Up.py', (error, stdout, stderr) => {
+                console.log('${stdout}');
+                console.log('${stderr}');
+                if (error !== null) {
+                    console.log('exec error: ${error}');
+                }
+            });
+        }
+        else if(strArray[0] == "down"){
+            var execute = exec('py Down.py', (error, stdout, stderr) => {
+                console.log('${stdout}');
+                console.log('${stderr}');
+                if (error !== null) {
+                    console.log('exec error: ${error}');
+                }
+            });
+        }
+        else if(strArray[0] == "space"){
+            var execute = exec('py Space.py', (error, stdout, stderr) => {
+                console.log('${stdout}');
+                console.log('${stderr}');
+                if (error !== null) {
+                    console.log('exec error: ${error}');
+                }
+            });
         }
         else{
             var execute = exec('say sorry', (error, stdout, stderr) => {
