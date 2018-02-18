@@ -22,7 +22,7 @@ Requirements:
 - "npm install express"
 3. Download the android app, and change the ip configuration to point to the correct ipv4 address.
 4. Say some commands!
-- "open <Youtube or Google ...> <search>" - Searches Google/Youtube for <search>
+- "open Youtube/Google ..." - Searches Google/Youtube for ...
 - "pause/resume" - Pauses/Resumes video
 - "skip/back" - Skips/Back a video
 - "fullscreen/normal" - Makes a video fullscreen/reduces it back to normal size
