@@ -10,11 +10,11 @@ import pyautogui
 pyautogui.FAILSAFE = True
 
 if (sys.argv[2] == 'continue' or sys.argv[2] == 'pause'):
-    pyautogui.click()
+    #pyautogui.click()
     pyautogui.press('k')
 elif (sys.argv[2] == 'next'):
-    pyautogui.click()
+    #pyautogui.click()
     pyautogui.hotkey('shift', 'n')
 elif (sys.argv[2] == 'previous'):
-    pyautogui.click()
+    #pyautogui.click()
     pyautogui.hotkey('shift', 'p')

@@ -11,10 +11,10 @@ import pyautogui
 pyautogui.FAILSAFE = True
 
 if sys.argv[2] == 'increase':
-    pyautogui.click()
+    #pyautogui.click()
     for i in range(int(sys.argv[3])):
         pyautogui.press('up')
 elif sys.argu[2] == 'decrease':
-    pyautogui.click()
+    #pyautogui.click()
     for i in range(int(sys.argv[3])):
         pyautogui.press('down')

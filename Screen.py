@@ -10,8 +10,8 @@ import sys
 pyautogui.FAILSAFE = True
 
 if (sys.argv[2] == 'full'):
-    pyautogui.click()
+    #pyautogui.click()
     pyautogui.press('f')
 elif (sys.argv[2] == 'normal'):
-    pyautogui.click()
+    #pyautogui.click()
     pyautogui.press('esc')

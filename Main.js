@@ -103,6 +103,24 @@ io.sockets.on('connection', function(socket){
                 }
             });
         }
+        else if(strArray[0] == "louder"){
+            var execute = exec('py volume.py volume increase '+strArray[1], (error, stdout, stderr) => {
+                console.log('${stdout}');
+                console.log('${stderr}');
+                if (error !== null) {
+                    console.log('exec error: ${error}');
+                }
+            });
+        }
+        else if(strArray[0] == "softer"){
+            var execute = exec('py volume.py volume decrease '+strArray[1], (error, stdout, stderr) => {
+                console.log('${stdout}');
+                console.log('${stderr}');
+                if (error !== null) {
+                    console.log('exec error: ${error}');
+                }
+            });
+        }
         /*else if(strArray[0] == "search"){
             if(strArray[1] == "image"){
                 var execute = exec('', (error, stdout, stderr) => {
@@ -169,13 +187,13 @@ io.sockets.on('connection', function(socket){
             });
         }
         else{
-            var execute = exec('say sorry', (error, stdout, stderr) => {
+            /*var execute = exec('say sorry', (error, stdout, stderr) => {
                 console.log('${stdout}');
                 console.log('${stderr}');
                 if (error !== null) {
                     console.log('exec error: ${error}');
                 }
-            });
+            });*/
             socket.emit('No Command', "Sorry Didn't Catch That");
         }
 
